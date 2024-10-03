@@ -16,15 +16,34 @@
 // Returns: A boolean value: True on success, false otherwise.
 bool sort_array(int *arr, int n){
 
-    // Write your code here
+    if (arr == NULL)
+        return false;
+    if (n < 2)
+        return true;
 
-    return false;
+    //Buble sort algorithm
+    bool sorted = false;
+    int temp;
+    while(!sorted)
+    {
+        sorted = true;
+        for (int i = 0; i < n - 1; i ++)
+        {
+            if (arr[i] > arr[i+1])
+            {
+            temp = arr[i];
+            arr[i] = arr[i+1];
+            arr[i+1] = temp;
+            sorted = false;
+            }
+        }
+    }
 }
 
 // Main function
 int main(){
     // The following array will be treated as an array of length len. 
-    const int len = 7; // Don't exceed the length of the array below!
+    const int len = 10; // Don't exceed the length of the array below!
     int array[] = {2, 9, 4, 3, 5, 1, 6, 8, 0, 7};
 
     // Print the original array
